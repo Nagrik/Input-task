@@ -8,7 +8,7 @@ const initialState = {
     CompletionDate: '',
     endPoint: 0,
     totalPrice: 0,
-    chooseLanguage: "Українська",
+    chooseLanguage: "",
     chooseCouple: ""
 }
 export const InputReducer = (state = initialState, action) => {
