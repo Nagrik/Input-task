@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {memo, useState} from "react";
 import TextArea from "./Components/TextArea";
 import {useDispatch, useSelector} from "react-redux";
 import {addTodo, chooseCouple, chooseUserLanguage} from "./redux/Actions";
@@ -17,7 +17,6 @@ const App = () => {
     const onChangeCouple = (e) => {
         dispatch(chooseCouple(e.target.value))
         dispatch(addTodo(e.target.value))
-
     }
 
     const selectTotalPrice = ({InputReducer}) => InputReducer.totalPrice
@@ -47,6 +46,7 @@ const App = () => {
                     {
                         value === 'Редагування' ?
                             <select className="select-css" onChange={onChangeChoose}>
+                                <option value="" hidden>Мова</option>
                                 <option value="Українська">Українська</option>
                                 <option value="Російська">Російська</option>
                                 <option value="Англійська">Англійська</option>
@@ -67,6 +67,6 @@ const App = () => {
             </form>
         </div>
     );
-};
+}
 
 export default App;

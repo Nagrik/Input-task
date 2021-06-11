@@ -8,13 +8,23 @@ const initialState = {
     CompletionDate: '',
     endPoint: 0,
     totalPrice: 0,
-    chooseLanguage: '',
-    chooseCouple: ''
+    chooseLanguage: "Українська",
+    chooseCouple: ""
 }
 export const InputReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_INPUT_VALUE':
+        case 'CHOOSE_USER_LANGUAGE':
+            return {
+                ...state,
+                chooseLanguage: action.value,
+            }
+        case 'CHOOSE_COUPLE':
+            return {
+                ...state,
 
+                chooseCouple: action.value,
+            }
+        case 'ADD_INPUT_VALUE':
             //Меньше 1000 символов Пары
             if (state.text.length <= 1000 && state.chooseCouple === 'Англійська - російська') {
                 state.totalPrice = state.fixedEngPrice
@@ -89,18 +99,9 @@ export const InputReducer = (state = initialState, action) => {
                 ...state,
                 text: action.text,
                 totalPrice: state.totalPrice,
-                CompletionDate: state.CompletionDate
+                CompletionDate: state.CompletionDate,
             }
-        case 'CHOOSE_USER_LANGUAGE':
-            return {
-                ...state,
-                chooseLanguage: action.value,
-            }
-        case 'CHOOSE_COUPLE':
-            return {
-                ...state,
-                chooseCouple: action.value,
-            }
+
         default:
             return state
     }

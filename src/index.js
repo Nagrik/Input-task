@@ -5,7 +5,6 @@ import './style.scss'
 import {Provider} from "react-redux";
 import {applyMiddleware, compose, createStore} from "redux";
 import {rootReducer} from "./redux/rootReducers";
-import {composeWithDevTools, devToolsEnhancer} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const composeEnhancers =
